@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CortadorDeGrama.agente;
+using CortadorDeGrama.geral;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,9 +9,14 @@ namespace CortadorDeGrama.ambiente
     public class Labirinto
     {
         private int tamanho = 3;
+
+        public AgenteLaberinto Agente { get; internal set; }
+
         private String[][] labirinto = null;
 
-        public int Tamanho { get
+        public int Tamanho
+        {
+            get
             {
                 return tamanho;
             }
@@ -21,6 +28,7 @@ namespace CortadorDeGrama.ambiente
             this.tamanho = tamanho;
             construirLabirinto();
         }
+
 
         private void construirLabirinto()
         {
@@ -43,6 +51,13 @@ namespace CortadorDeGrama.ambiente
 
         }
 
+        internal void Limpar()
+        {
+            PosisaoXY posicao = this.Agente.posXY;
+            labirinto[posicao.posX][posicao.posY] = "L";
+
+        }
+
         public void exibirLabirinto()
         {
             foreach (var item in this.labirinto)
@@ -54,6 +69,10 @@ namespace CortadorDeGrama.ambiente
                 Console.Write("\n");
             }
 
+        }
+        public string retornarValorPosicaoLaberinto(PosisaoXY posisaoXY)
+        {
+            return this.labirinto[posisaoXY.posX][posisaoXY.posY];
         }
     }
 }

@@ -12,15 +12,36 @@ namespace CortadorDeGrama.agente
         public Labirinto laberinto  { get; set; }
 
         private MovimentoAgenteLaberinto movimento;
-        private PosisaoXY posXY;
+        public PosisaoXY posXY { get; set; }
+        
 
         public AgenteLaberinto(Labirinto laberinto)
         {
             this.laberinto = laberinto;
+            laberinto.Agente=this;
             this.posXY = new PosisaoXY();
             
             this.movimento = MovimentoAgenteLaberinto.CIMA;
         }
+
+        public void movimentar()
+        {
+            PosisaoXY proximoMovimento = retornarMovimento();
+
+            String valor = this.laberinto.retornarValorPosicaoLaberinto(proximoMovimento );
+            if (valor.Equals("L") || valor.Equals("*A*"))
+            {
+
+            }
+            else
+            {
+                this.laberinto.Limpar();
+                this.posXY = proximoMovimento;
+            }
+
+        }
+
+
 
         public PosisaoXY retornarMovimento()
         {
