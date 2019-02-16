@@ -9,6 +9,13 @@ namespace CortadorDeGrama.ambiente
         private int tamanho = 3;
         private String[][] labirinto = null;
 
+        public int Tamanho { get
+            {
+                return tamanho;
+            }
+
+        }
+
         public Labirinto(int tamanho)
         {
             this.tamanho = tamanho;
