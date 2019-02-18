@@ -1,11 +1,35 @@
 ﻿using algoritmoArtificialBusca.nos;
 using System;
+using System.Collections.Generic;
 
 namespace algoritmoArtificialBusca
 {
     class Program
     {
         static void Main(string[] args)
+        {
+            
+        }
+        
+        public void carregarFILA()
+        {
+            Queue<int> fila = new Queue<int>();
+
+            fila.Enqueue(1);
+            fila.Enqueue(2);
+            fila.Enqueue(3);
+            fila.Enqueue(4);
+            fila.Enqueue(5);
+            fila.Enqueue(6);
+            fila.Enqueue(7);
+
+            int valor = fila.Dequeue();
+            int valor2 = fila.Dequeue();
+
+        }
+            
+
+        public void carregaArvore()
         {
             NO no0 = new NO(0);
             NO no1 = new NO(1);
@@ -28,8 +52,6 @@ namespace algoritmoArtificialBusca
 
             no2.noEsquerda = no5;
             no2.noDireita = no6;
-
-
         }
     }
 }
