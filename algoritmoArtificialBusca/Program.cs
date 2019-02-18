@@ -8,10 +8,25 @@ namespace algoritmoArtificialBusca
     {
         static void Main(string[] args)
         {
-            
+            Program p = new Program();
+            p.carregarFILO();
+        }
+
+        public void carregarFILO()
+        {
+            Stack<int> pilha = new Stack<int>();
+            pilha.Push(1);
+            pilha.Push(2);
+            pilha.Push(3);
+            pilha.Push(4);
+            pilha.Push(5);
+
+            int valor = pilha.Pop();
+
+
         }
         
-        public void carregarFILA()
+        public void carregarFIFO()
         {
             Queue<int> fila = new Queue<int>();
 
