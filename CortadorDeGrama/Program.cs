@@ -1,5 +1,7 @@
-﻿using CortadorDeGrama.ambiente;
+﻿using CortadorDeGrama.agente;
+using CortadorDeGrama.ambiente;
 using System;
+using System.Threading;
 
 namespace CortadorDeGrama
 {
@@ -11,6 +13,17 @@ namespace CortadorDeGrama
             var laberinto = new Labirinto(3);
 
             laberinto.exibirLabirinto();
+
+            AgenteLaberinto agente = new AgenteLaberinto(laberinto);
+
+            while (agente.isAindaLimpeza())
+            {
+                agente.movimentar();
+                laberinto.exibirLabirinto();
+
+                Thread.Sleep(1500);
+            }
+            return;
 
             Console.ReadKey();
         }

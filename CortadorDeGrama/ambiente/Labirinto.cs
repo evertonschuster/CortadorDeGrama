@@ -60,6 +60,7 @@ namespace CortadorDeGrama.ambiente
 
         public void exibirLabirinto()
         {
+            this.atualizarPosicaoAgente();
             foreach (var item in this.labirinto)
             {
                 foreach (var campo in item)
@@ -70,6 +71,18 @@ namespace CortadorDeGrama.ambiente
             }
 
         }
+
+        private void atualizarPosicaoAgente()
+        {
+
+            if (this.Agente != null)
+            {
+                PosisaoXY posisaoAgente = this.Agente.posXY;
+
+                labirinto[posisaoAgente.posX][posisaoAgente.posY] = "*A*";
+            }
+        }
+
         public string retornarValorPosicaoLaberinto(PosisaoXY posisaoXY)
         {
             return this.labirinto[posisaoXY.posX][posisaoXY.posY];
